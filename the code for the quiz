@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Class Quiz Selector</title>
+  <style>
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+    }
+    .question-box {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid black;
+      max-width: 600px;
+    }
+    .options button {
+      display: block;
+      margin: 5px 0;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+    }
+    .correct {
+      background-color: #a5d6a7; /* light green */
+    }
+    .wrong {
+      background-color: #ef9a9a; /* light red */
+    }
+  </style>
+</head>
+<body>
+
+<h2>Select a Class</h2>
+<div>
+  <button onclick="showQuiz('A')">Class IX A</button>
+  <button onclick="showQuiz('C')">Class IX C</button>
+  <button onclick="showQuiz('D')">Class IX D</button>
+  <button onclick="showQuiz('E')">Class IX E</button>
+  <button onclick="showQuiz('F')">Class IX F</button>
+  <button onclick="showQuiz('G')">Class IX G</button>
+  <button onclick="showQuiz('H')">Class IX H</button>
+</div>
+
+<div id="quizOutput"></div>
+
+<script>
+  const quizData = {
+    A: {
+      boys: ["Aarav", "Dev", "Rohan"],
+      girls: ["Anaya", "Kiara", "Sneha"],
+      boyQuestion: {
+        question: "Which chemical element has the highest melting point?",
+        options: ["Carbon", "Tungsten", "Iron", "Platinum"],
+        answer: "Tungsten"
+      },
+      girlQuestion: {
+        question: "Who was the first female Prime Minister in the world?",
+        options: ["Indira Gandhi", "Sirimavo Bandaranaike", "Margaret Thatcher", "Angela Merkel"],
+        answer: "Sirimavo Bandaranaike"
+      }
+    },
+    C: {
+      boys: ["Rahul", "Yash", "Kunal"],
+      girls: ["Sara", "Isha", "Diya"],
+      boyQuestion: {
+        question: "What is the capital of the country with the smallest population?",
+        options: ["Monaco", "Nauru", "Vatican City", "San Marino"],
+        answer: "Vatican City"
+      },
+      girlQuestion: {
+        question: "Which planet in our solar system has the shortest day?",
+        options: ["Mercury", "Jupiter", "Saturn", "Mars"],
+        answer: "Jupiter"
+      }
+    },
+    D: {
+      boys: ["Karthik", "Mihir", "Tanay"],
+      girls: ["Tanya", "Riya", "Anjali"],
+      boyQuestion: {
+        question: "Which country has the most official languages?",
+        options: ["India", "Canada", "Bolivia", "South Africa"],
+        answer: "South Africa"
+      },
+      girlQuestion: {
+        question: "In what year was the United Nations founded?",
+        options: ["1919", "1939", "1945", "1950"],
+        answer: "1945"
+      }
+    },
+    E: {
+      boys: ["Aryan", "Pranav", "Nikhil"],
+      girls: ["Meera", "Sanya", "Lavanya"],
+      boyQuestion: {
+        question: "Who first measured the Earth's circumference?",
+        options: ["Ptolemy", "Eratosthenes", "Copernicus", "Galileo"],
+        answer: "Eratosthenes"
+      },
+      girlQuestion: {
+        question: "Which bird can fly backward?",
+        options: ["Swift", "Kingfisher", "Hummingbird", "Falcon"],
+        answer: "Hummingbird"
+      }
+    },
+    F: {
+      boys: ["Neil", "Aditya", "Sameer"],
+      girls: ["Pooja", "Neha", "Ishita"],
+      boyQuestion: {
+        question: "Who is the highest rated Indian chess player as of 2024?",
+        options: ["Viswanathan Anand", "R Praggnanandhaa", "D Gukesh", "Arjun Erigaisi"],
+        answer: "Arjun Erigaisi"
+      },
+      girlQuestion: {
+        question: "Which ocean current keeps Western Europe warmer?",
+        options: ["Canary Current", "Gulf Stream", "Humboldt Current", "Labrador Current"],
+        answer: "Gulf Stream"
+      }
+    },
+    G: {
+      boys: ["Vikram", "Raj", "Aman"],
+      girls: ["Shreya", "Khushi", "Simran"],
+      boyQuestion: {
+        question: "Who wrote the ancient Indian book Arthashastra?",
+        options: ["Panini", "Chanakya", "Ashoka", "Patanjali"],
+        answer: "Chanakya"
+      },
+      girlQuestion: {
+        question: "Which is the world's largest active volcano by area?",
+        options: ["Mount Etna", "Kīlauea", "Mount Fuji", "Mauna Loa"],
+        answer: "Mauna Loa"
+      }
+    },
+    H: {
+      boys: ["Varun", "Aayush", "Harsh"],
+      girls: ["Avni", "Nandini", "Priya"],
+      boyQuestion: {
+        question: "Which city is home to the International Court of Justice?",
+        options: ["Geneva", "Brussels", "The Hague", "Vienna"],
+        answer: "The Hague"
+      },
+      girlQuestion: {
+        question: "Which Asian country was formerly known as Siam?",
+        options: ["Myanmar", "Cambodia", "Laos", "Thailand"],
+        answer: "Thailand"
+      }
+    }
+  };
+
+  function pickRandom(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  function createOptionsHTML(options, correctAnswer, qID) {
+    return options.map(opt => {
+      return `<button onclick="checkAnswer(this, '${opt}', '${correctAnswer}', '${qID}')">${opt}</button>`;
+    }).join("");
+  }
+
+  function checkAnswer(button, chosen, correct, qID) {
+    const container = document.querySelector(`[data-question='${qID}']`);
+    const buttons = container.querySelectorAll("button");
+
+    buttons.forEach(btn => {
+      btn.disabled = true; // disable all buttons
+
+      if (btn.innerText === correct) {
+        btn.classList.add("correct"); // show correct answer
+      }
+
+      if (btn.innerText === chosen && chosen !== correct) {
+        btn.classList.add("wrong"); // highlight wrong selection
+      }
+    });
+  }
+
+  function showQuiz(section) {
+    const data = quizData[section];
+    const boyName = pickRandom(data.boys);
+    const girlName = pickRandom(data.girls);
+
+    const boyQuestionHTML = `
+      <div class="question-box" data-question="boy-${section}">
+        <h3>👦 ${boyName}'s Question:</h3>
+        <p>${data.boyQuestion.question}</p>
+        <div class="options" data-question="boy-${section}">
+          ${createOptionsHTML(data.boyQuestion.options, data.boyQuestion.answer, `boy-${section}`)}
+        </div>
+      </div>
+    `;
+
+    const girlQuestionHTML = `
+      <div class="question-box" data-question="girl-${section}">
+        <h3>👧 ${girlName}'s Question:</h3>
+        <p>${data.girlQuestion.question}</p>
+        <div class="options" data-question="girl-${section}">
+          ${createOptionsHTML(data.girlQuestion.options, data.girlQuestion.answer, `girl-${section}`)}
+        </div>
+      </div>
+    `;
+
+    document.getElementById("quizOutput").innerHTML = boyQuestionHTML + girlQuestionHTML;
+  }
+</script>
+
+</body>
+</html>

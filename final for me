@@ -103,7 +103,7 @@
       }
     },
     D: {
-      boys: ["Rion"],
+      boys: ["abhinav"],
       girls: ["Aradya"],
       boyQuestion: {
         question: "Which country has the most official languages?",
@@ -160,7 +160,7 @@
     },
     H: {
       boys: ["Tanish"],
-      girls: ["Anagha"],
+      girls: ["arvi"],
       boyQuestion: {
         question: "Who is the shortest person alive?",
         options: ["Jyoti Amge", "Chandra Bahadur Dangi", "Pingping He", "Junrey Balawing"],

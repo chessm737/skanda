@@ -3,28 +3,57 @@
 <head>
   <title>Class IX Quiz</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdfdfd;
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
     button {
-      margin: 5px;
-      padding: 10px 15px;
-    }
-    .question-box {
-      margin-top: 20px;
-      padding: 10px;
-      border: 1px solid black;
-      max-width: 600px;
-    }
-    .options button {
-      display: block;
-      margin: 5px 0;
-      width: 100%;
-      text-align: left;
+      font-size: 24px;
+      margin: 10px;
+      padding: 15px 25px;
       cursor: pointer;
     }
-    .correct {
-      background-color: #a5d6a7; /* light green */
+
+    .question-box {
+      margin-top: 40px;
+      padding: 30px;
+      border: 3px solid black;
+      max-width: 900px;
+      background-color: #fff;
     }
+
+    .question-box h3 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .question-box p {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .options button {
+      display: block;
+      margin: 10px 0;
+      width: 100%;
+      font-size: 26px;
+      text-align: left;
+      padding: 15px;
+    }
+
+    .correct {
+      background-color: #a5d6a7 !important;
+    }
+
     .wrong {
-      background-color: #ef9a9a; /* light red */
+      background-color: #ef9a9a !important;
     }
   </style>
 </head>
@@ -68,9 +97,9 @@
         answer: "Vatican City"
       },
       girlQuestion: {
-        question: "Which planet in our solar system has the shortest day?",
-        options: ["Mercury", "Jupiter", "Saturn", "Mars"],
-        answer: "Jupiter"
+        question: "What was Manchester United's original name?",
+        options: ["Newton Heath", "Manchester Albion", "Salford FC", "Lancashire United"],
+        answer: "Newton Heath"
       }
     },
     D: {
@@ -88,31 +117,31 @@
       }
     },
     E: {
-  boys: ["Dhruva", "Taseen"],
-  girls: ["Aneira"],
-  boyQuestion: {
-    question: "What was Manchester United's original name?",
-    options: ["Newton Heath", "Manchester Albion", "Salford FC", "Lancashire United"],
-    answer: "Newton Heath"
-  },
-  girlQuestion: {
-    question: "Which former Manchester United and England star was awarded a knighthood in recognition of his contributions as a footballer and his charitable services?",
-    options: ["Wayne Rooney", "Gary Neville", "David Beckham", "Ryan Giggs"],
-    answer: "David Beckham"
-  }
-},
+      boys: ["Dhruva", "Taseen"],
+      girls: ["Aneira"],
+      boyQuestion: {
+        question: "Which planet in our solar system has the shortest day?",
+        options: ["Mercury", "Jupiter", "Saturn", "Mars"],
+        answer: "Jupiter"
+      },
+      girlQuestion: {
+        question: "Which former Manchester United and England star was awarded a knighthood in recognition of his contributions as a footballer and his charitable services?",
+        options: ["Wayne Rooney", "Gary Neville", "David Beckham", "Ryan Giggs"],
+        answer: "David Beckham"
+      }
+    },
     F: {
       boys: ["Ishaan"],
       girls: ["Samika"],
       boyQuestion: {
-        question: "Who is the highest rated Indian chess player as of 2024?",
-        options: ["Viswanathan Anand", "R Praggnanandhaa", "D Gukesh", "Arjun Erigaisi"],
-        answer: "Arjun Erigaisi"
+        question: "Who discovered Uranus?",
+        options: ["William Herschel", "Isaac Newton", "Galileo Galilei", "Tipu Sultan"],
+        answer: "William Herschel"
       },
       girlQuestion: {
-        question: "Which ocean current keeps Western Europe warmer?",
-        options: ["Canary Current", "Gulf Stream", "Humboldt Current", "Labrador Current"],
-        answer: "Gulf Stream"
+        question: "Who is the highest rated Indian chess player?",
+        options: ["Viswanathan Anand", "R Praggnanandhaa", "Arjun Erigaisi", "D Gukesh"],
+        answer: "Arjun Erigaisi"
       }
     },
     G: {
